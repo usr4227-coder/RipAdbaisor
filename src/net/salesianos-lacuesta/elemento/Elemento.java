@@ -41,6 +41,13 @@ public class Elemento {
     public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre +
+               "\nCategoría: " + categoria +
+               "\nDescripción: " + descripcion +
+               "\nPuntuación: " + puntuacion + "/5";
+    }
  }
 }
