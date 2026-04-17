@@ -1,19 +1,15 @@
-package net.salesianos.servicio;
+package net.salesianoslacuesta.servicio;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-import net.salesianos
-import net.salesianos.elemento.Elemento;
-import net.salesianos.elemento.Elemento;
-import net.salesianos.lacuesta.elemento.Elemento;
+import net.salesianoslacuesta.elemento.Elemento;
 
-public class ServicioElemento {
-    rivate List<Elemento>elementos;
+public class ServicioElementos {
 
-public ServicioElementos() {
+    private List<Elemento> elementos;
+
+    public ServicioElementos() {
         this.elementos = new ArrayList<>();
     }
 
@@ -31,6 +27,31 @@ public ServicioElementos() {
         if (indice >= 0 && indice < elementos.size()) {
             elementos.remove(indice);
         }
+    }
+
+    public List<Elemento> obtenerTodos() {
+        return elementos;
+    }
+
+    public List<Elemento> obtenerElementosOrdenados() {
+        List<Elemento> copia = new ArrayList<>(elementos);
+
+        for (int i = 0; i < copia.size() - 1; i++) {
+            for (int j = 0; j < copia.size() - 1 - i; j++) {
+
+                int puntuacionActual = copia.get(j).getPuntuacion();
+                int puntuacionSiguiente = copia.get(j + 1).getPuntuacion();
+
+                if (puntuacionActual < puntuacionSiguiente) {
+
+                    Elemento temporal = copia.get(j);
+                    copia.set(j, copia.get(j + 1));
+                    copia.set(j + 1, temporal);
+                }
+            }
+        }
+
+        return copia;
     }
 
 }
