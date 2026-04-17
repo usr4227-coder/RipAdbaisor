@@ -15,7 +15,7 @@ public class Elemento {
         return nombre;
     }
 
-     public String getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
@@ -23,9 +23,10 @@ public class Elemento {
         return descripcion;
     }
 
-     public int getPuntuacion() {
+    public int getPuntuacion() {
         return puntuacion;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -45,9 +46,8 @@ public class Elemento {
     @Override
     public String toString() {
         return "Nombre: " + nombre +
-               "\nCategoría: " + categoria +
-               "\nDescripción: " + descripcion +
-               "\nPuntuación: " + puntuacion + "/5";
+                "\nCategoría: " + categoria +
+                "\nDescripción: " + descripcion +
+                "\nPuntuación: " + puntuacion + "/5";
     }
- }
-}
+}}
