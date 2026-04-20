@@ -5,8 +5,6 @@ import java.util.List;
 
 import net.salesianoslacuesta.elemento.Elemento;
 
-public class ServicioElemento {
-=======
 public class ServicioElementos {
 
     private List<Elemento> elementos;
@@ -57,5 +55,4 @@ public class ServicioElementos {
 
     }
 
-}
 }
