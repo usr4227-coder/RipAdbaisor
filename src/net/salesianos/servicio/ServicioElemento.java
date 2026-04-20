@@ -5,7 +5,6 @@ import java.util.List;
 
 import net.salesianoslacuesta.elemento.Elemento;
 
-<<<<<<< HEAD
 public class ServicioElemento {
 =======
 public class ServicioElementos {
@@ -57,6 +56,6 @@ public class ServicioElementos {
         return copia;
 
     }
->>>>>>> servicio
 
+}
 }
