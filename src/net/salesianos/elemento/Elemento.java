@@ -1,21 +1,24 @@
+package net.salesianos.elemento
+
 public class Elemento {
+
     private String nombre;
     private String categoria;
     private String descripcion;
     private int puntuacion;
 
- public Elemento (String nombre, String categoria, String descripcion String puntuacion ) {
-    this.nombre = nombre;
-    this.categoria = categoria;
-    this.descripcion = descripcion;
-    this.puntuacion = puntuacion;
-    
-    // Getters y setters
+    public Elemento(String nombre, String categoria, String descripcion, int puntuacion) {
+        this.nombre = nombre;
+        this.categoria = categoria;
+        this.descripcion = descripcion;
+        this.puntuacion = puntuacion;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
-     public String getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
@@ -23,9 +26,10 @@ public class Elemento {
         return descripcion;
     }
 
-     public int getPuntuacion() {
+    public int getPuntuacion() {
         return puntuacion;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -45,9 +49,8 @@ public class Elemento {
     @Override
     public String toString() {
         return "Nombre: " + nombre +
-               "\nCategoría: " + categoria +
-               "\nDescripción: " + descripcion +
-               "\nPuntuación: " + puntuacion + "/5";
+                "\nCategoría: " + categoria +
+                "\nDescripción: " + descripcion +
+                "\nPuntuación: " + puntuacion;
     }
- }
 }
