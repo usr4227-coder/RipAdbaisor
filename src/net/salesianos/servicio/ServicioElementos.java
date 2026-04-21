@@ -1,4 +1,4 @@
-package net.salesianoslacuesta.servicio;
+package net.salesianos.servicio;
 
 import java.util.ArrayList;
 import java.util.List;
