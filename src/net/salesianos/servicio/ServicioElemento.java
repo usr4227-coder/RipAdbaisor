@@ -2,8 +2,7 @@ package net.salesianoslacuesta.servicio;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import net.salesianoslacuesta.elemento.Elemento;
+import net.salesianos.elemento.Elemento;
 
 public class ServicioElementos {
 
@@ -55,4 +54,5 @@ public class ServicioElementos {
 
     }
 
+}
 }
