@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import net.salesianos.elemento.Elemento;
 
+/*
+ * Clase que gestiona la lista de elementos del programa.
+ * Permite realizar las operaciones del CRUD: añadir, editar, eliminar
+ * y obtener los elementos ordenados por puntuación de forma descendente.
+ * Actúa como la "lista inteligente" central del sistema.
+ */
 public class ServicioElementos {
 
     private List<Elemento> elementos;
@@ -16,15 +22,15 @@ public class ServicioElementos {
         elementos.add(elemento);
     }
 
-    public void editarElemento(int indice, Elemento nuevoElemento) {
-        if (indice >= 0 && indice < elementos.size()) {
-            elementos.set(indice, nuevoElemento);
+    public void editarElemento(int indiceElemento, Elemento elementoEditado) {
+        if (indiceElemento >= 0 && indiceElemento < elementos.size()) {
+            elementos.set(indiceElemento, elementoEditado);
         }
     }
 
-    public void eliminarElemento(int indice) {
-        if (indice >= 0 && indice < elementos.size()) {
-            elementos.remove(indice);
+    public void eliminarElemento(int indiceElemento) {
+        if (indiceElemento >= 0 && indiceElemento < elementos.size()) {
+            elementos.remove(indiceElemento);
         }
     }
 
@@ -33,25 +39,25 @@ public class ServicioElementos {
     }
 
     public List<Elemento> obtenerElementosOrdenados() {
-        List<Elemento> copia = new ArrayList<>(elementos);
 
-        for (int i = 0; i < copia.size() - 1; i++) {
-            for (int j = 0; j < copia.size() - 1 - i; j++) {
+        List<Elemento> copiaElementos = new ArrayList<>(elementos);
 
-                int puntuacionActual = copia.get(j).getPuntuacion();
-                int puntuacionSiguiente = copia.get(j + 1).getPuntuacion();
+        for (int indiceActual = 0; indiceActual < copiaElementos.size() - 1; indiceActual++) {
+            for (int indiceComparacion = 0; indiceComparacion < copiaElementos.size() - 1
+                    - indiceActual; indiceComparacion++) {
+
+                int puntuacionActual = copiaElementos.get(indiceComparacion).getPuntuacion();
+                int puntuacionSiguiente = copiaElementos.get(indiceComparacion + 1).getPuntuacion();
 
                 if (puntuacionActual < puntuacionSiguiente) {
 
-                    Elemento temporal = copia.get(j);
-                    copia.set(j, copia.get(j + 1));
-                    copia.set(j + 1, temporal);
+                    Elemento elementoTemporal = copiaElementos.get(indiceComparacion);
+                    copiaElementos.set(indiceComparacion, copiaElementos.get(indiceComparacion + 1));
+                    copiaElementos.set(indiceComparacion + 1, elementoTemporal);
                 }
             }
         }
 
-        return copia;
-
+        return copiaElementos;
     }
-
 }

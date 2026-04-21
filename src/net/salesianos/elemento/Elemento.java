@@ -1,5 +1,10 @@
 package net.salesianos.elemento;
 
+/*
+ * Clase que representa un elemento dentro del sistema de valoración.
+ * Contiene los datos básicos: nombre, categoría, descripción y puntuación.
+ * Se utiliza como modelo dentro del CRUD para almacenar y mostrar información.
+ */
 public class Elemento {
 
     private String nombre;

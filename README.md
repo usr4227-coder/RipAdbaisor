@@ -1,6 +1,6 @@
 # Objetivos del proyecto
 
-Este proyecto es una aplicación sencilla en Java centrada en el uso de ventanas con `JOptionPane` y en el manejo de errores mediante validaciones y bloques `try/catch`. El programa permite añadir, editar, mostrar y eliminar elementos, cada uno con nombre, categoría, descripción y puntuación.
+Este proyecto es una aplicación sencilla en Java centrada en el uso de ventanas con `JOptionPane` y en el manejo de validaciones para evitar errores comunes al introducir datos. El programa permite añadir, editar, mostrar y eliminar elementos, cada uno con nombre, categoría, descripción y puntuación.
 
 ## Explicación de cada clase
 
@@ -10,19 +10,24 @@ Clase que representa un elemento con sus atributos básicos. Solo almacena datos
 
 ### ServicioElementos
 
-Gestiona la lista de elementos. Aquí se realizan las operaciones principales: añadir, editar, eliminar y ordenar. La ordenación se hace manualmente con dos bucles anidados.
+Gestiona la lista de elementos. Aquí se realizan las operaciones principales: añadir, editar, eliminar y ordenar.  
+La ordenación se hace manualmente con dos bucles anidados, comparando puntuaciones para ordenar de mayor a menor.
 
 ### MenuPrincipal
 
-Controla el menú del programa y coordina las acciones del usuario. Utiliza `Dialogos` para mostrar ventanas y `Validador` para comprobar que los datos introducidos sean correctos. Aquí es donde más se aplica el manejo de errores, evitando que el programa falle si el usuario introduce datos no válidos.
+Controla el menú del programa y coordina las acciones del usuario.  
+Utiliza `Dialogos` para mostrar ventanas y `Validador` para comprobar que los datos introducidos sean correctos.  
+Aquí se aplican las validaciones necesarias para evitar errores, comprobando si los textos están vacíos, si los números son válidos o si están dentro del rango permitido.
 
 ### Dialogos
 
-Centraliza las ventanas de entrada y salida usando `JOptionPane`. Permite mantener el código del menú más limpio.
+Centraliza las ventanas de entrada y salida usando `JOptionPane`.  
+Permite mantener el código del menú más limpio y organizado.
 
 ### Validador
 
-Incluye métodos estáticos para validar textos y números. Se usa junto con `try/catch` para evitar errores al convertir cadenas a enteros o al comprobar rangos.
+Incluye métodos estáticos para validar textos y números.  
+El único uso de `try/catch` del proyecto está dentro de `esEntero()`, que detecta si un texto puede convertirse a número sin que el programa falle.
 
 ### App
 
@@ -31,17 +36,22 @@ Clase principal que inicia el programa creando el servicio y el menú.
 ## Funcionamiento general del programa
 
 El programa funciona mediante un menú mostrado con `JOptionPane`.  
-Cada vez que el usuario introduce un dato, se valida y se controla con `try/catch` para evitar errores comunes, como escribir letras en lugar de números o dejar campos vacíos.  
+Cada vez que el usuario introduce un dato, se valida antes de procesarlo para evitar errores:
+
+- Se comprueba si un texto está vacío
+- Se verifica si un número es válido
+- Se controla si está dentro del rango permitido
+
 Los elementos se guardan en una lista y se ordenan de mayor a menor puntuación mediante un algoritmo sencillo hecho a mano.
 
 ## Uso de Git durante el desarrollo
 
 El repositorio se creó en GitHub y luego se clonó en local.  
 Durante el desarrollo se hicieron commits pequeños para registrar cada avance.  
-Se trabajó con ramas para separar partes del proyecto (interfaz, utilidades, servicio, etc.).  
+Se trabajó con ramas para separar partes del proyecto (interfaz, util, servicio, developer, etc.).  
 Cuando una rama estaba lista, se hacía merge a la rama principal.  
 Al final se dejó el repositorio limpio y organizado en GitHub.
 
 ## Conclusión
 
-Este proyecto ha servido para practicar el uso de `JOptionPane`, validaciones, manejo de errores con `try/catch`, organización por paquetes y un flujo de trabajo básico con Git y GitHub.
+Este proyecto ha servido para practicar el uso de `JOptionPane`, validaciones y trabajo básico con Git y GitHub.

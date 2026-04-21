@@ -6,6 +6,12 @@ import net.salesianos.elemento.Elemento;
 import net.salesianos.util.Dialogos;
 import net.salesianos.util.Validador;
 
+/*
+ * Clase que gestiona el menú principal de la aplicación.
+ * Controla las opciones del CRUD: añadir, editar, mostrar y eliminar elementos.
+ * Utiliza ventanas JOptionPane para interactuar con el usuario y delega la lógica
+ * en la clase ServicioElementos.
+ */
 public class MenuPrincipal {
 
     private ServicioElementos servicio;
@@ -16,11 +22,11 @@ public class MenuPrincipal {
 
     public void iniciar() {
 
-        boolean salir = false;
+        boolean deseaSalir = false;
 
-        while (!salir) {
+        while (!deseaSalir) {
 
-            String opcion = JOptionPane.showInputDialog(
+            String opcionSeleccionada = JOptionPane.showInputDialog(
                     "MENÚ PRINCIPAL\n\n" +
                             "1. Añadir elemento\n" +
                             "2. Editar elemento\n" +
@@ -29,10 +35,10 @@ public class MenuPrincipal {
                             "5. Salir\n\n" +
                             "Elige una opción:");
 
-            if (opcion == null)
+            if (opcionSeleccionada == null)
                 continue;
 
-            switch (opcion) {
+            switch (opcionSeleccionada) {
 
                 case "1":
                     agregar();
@@ -51,7 +57,7 @@ public class MenuPrincipal {
                     break;
 
                 case "5":
-                    salir = true;
+                    deseaSalir = true;
                     break;
 
                 default:
@@ -92,8 +98,8 @@ public class MenuPrincipal {
             return;
         }
 
-        Elemento e = new Elemento(nombre, categoria, descripcion, puntuacion);
-        servicio.agregarElemento(e);
+        Elemento nuevoElemento = new Elemento(nombre, categoria, descripcion, puntuacion);
+        servicio.agregarElemento(nuevoElemento);
 
         Dialogos.mostrarInfo("Elemento añadido correctamente.");
     }
@@ -106,9 +112,9 @@ public class MenuPrincipal {
             return;
         }
 
-        int indice = Validador.convertirEntero(textoIndice);
+        int indiceElemento = Validador.convertirEntero(textoIndice);
 
-        if (indice < 0 || indice >= servicio.obtenerTodos().size()) {
+        if (indiceElemento < 0 || indiceElemento >= servicio.obtenerTodos().size()) {
             Dialogos.mostrarError("El índice no existe.");
             return;
         }
@@ -143,8 +149,8 @@ public class MenuPrincipal {
             return;
         }
 
-        Elemento nuevo = new Elemento(nombre, categoria, descripcion, puntuacion);
-        servicio.editarElemento(indice, nuevo);
+        Elemento elementoEditado = new Elemento(nombre, categoria, descripcion, puntuacion);
+        servicio.editarElemento(indiceElemento, elementoEditado);
 
         Dialogos.mostrarInfo("Elemento editado correctamente.");
     }
@@ -156,13 +162,13 @@ public class MenuPrincipal {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
+        String textoElementos = "";
 
-        for (Elemento e : servicio.obtenerElementosOrdenados()) {
-            sb.append(e.toString()).append("\n----------------------\n");
+        for (Elemento elementoActual : servicio.obtenerElementosOrdenados()) {
+            textoElementos = textoElementos + elementoActual.toString() + "\n----------------------\n";
         }
 
-        Dialogos.mostrarInfo(sb.toString());
+        Dialogos.mostrarInfo(textoElementos);
     }
 
     private void eliminar() {
@@ -173,14 +179,14 @@ public class MenuPrincipal {
             return;
         }
 
-        int indice = Validador.convertirEntero(textoIndice);
+        int indiceElemento = Validador.convertirEntero(textoIndice);
 
-        if (indice < 0 || indice >= servicio.obtenerTodos().size()) {
+        if (indiceElemento < 0 || indiceElemento >= servicio.obtenerTodos().size()) {
             Dialogos.mostrarError("El índice no existe.");
             return;
         }
 
-        servicio.eliminarElemento(indice);
+        servicio.eliminarElemento(indiceElemento);
         Dialogos.mostrarInfo("Elemento eliminado.");
     }
 }

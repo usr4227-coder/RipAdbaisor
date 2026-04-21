@@ -2,6 +2,11 @@ package net.salesianos.util;
 
 import javax.swing.JOptionPane;
 
+/*
+ * Clase de utilidades para mostrar diálogos gráficos con JOptionPane.
+ * Permite solicitar texto o números al usuario y mostrar mensajes de
+ * información o error de forma centralizada para mantener el código limpio.
+ */
 public class Dialogos {
 
     public static String pedirTexto(String mensaje) {
@@ -9,8 +14,8 @@ public class Dialogos {
     }
 
     public static int pedirNumero(String mensaje) {
-        String texto = JOptionPane.showInputDialog(mensaje);
-        return Integer.parseInt(texto);
+        String textoIntroducido = JOptionPane.showInputDialog(mensaje);
+        return Integer.parseInt(textoIntroducido);
     }
 
     public static void mostrarInfo(String mensaje) {
