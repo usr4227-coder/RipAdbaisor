@@ -1,7 +1,7 @@
 package net.salesianos.interfaz;
 
 import javax.swing.JOptionPane;
-import net.salesianos.servicio.ServicioElementos;
+import net.salesianos.servicio.ServicioElemento;
 import net.salesianos.elemento.Elemento;
 import net.salesianos.util.Dialogos;
 import net.salesianos.util.Validador;
