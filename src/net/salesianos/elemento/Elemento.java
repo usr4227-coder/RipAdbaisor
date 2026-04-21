@@ -1,4 +1,4 @@
-package net.salesianos.elemento
+package net.salesianos.elemento;
 
 public class Elemento {
 
